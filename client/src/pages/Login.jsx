@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 
 const Login = () => {
   const [user,setUser]=useState('Student')
+  
   return (
     <div className='flex flex-col items-center justify-center'>
       <h1 className='font-semibold text-[24px] text-blue-500 mb-12' >Welcome to Student attandance<br></br> management login to proceed !</h1>
