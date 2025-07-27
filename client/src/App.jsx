@@ -1,13 +1,11 @@
 import './App.css'
+import Login from './pages/Login'
+import Teacher from './pages/Teacher'
 
 function App() {
   return (
     <>
-       <div className='w-8 h-8 text-amber-300 bg-amber-600'>
-
-        
-       </div>
-        
+       <Teacher />
     </>
   )
 }
