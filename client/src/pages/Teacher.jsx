@@ -2,18 +2,18 @@ import React, { useEffect, useState } from "react";
 
 const Teacher = () => {
   const [date_arr, setDate_arr] = useState([]);
-  const student_detail = [
+  const [student_detail,setStudent_detail] = useState([
     {
       name: "jhon",
       student_id: "001",
-      attandance: { '20/1':"P", "23/1":"A", "30/1": "P" },
+      attandance: { "20/1": "P", "23/1": "A", "30/1": "P" },
     },
     {
       name: "kumar",
-      student_id: "001",
-      attandance: { "23/1":"A", "30/1": "P" },
+      student_id: "002",
+      attandance: { "23/1": "A", "30/1": "P" },
     },
-  ];
+  ]);
 
   const start_date = "20/01/2025";
   const current_date = "30/01/2025";
@@ -34,6 +34,17 @@ const Teacher = () => {
 
     return setDate_arr(arr);
   };
+
+  const handleChange = (e) => {
+        const id=e.target.id;
+        const date=e.target.name;
+        const status=e.target.value
+        setStudent_detail(
+            (perv)=>perv.map((item)=>( item.student_id==id?{...item,attandance:{...item.attandance,[date]:status}}:item))
+               
+            
+        )
+  }
 
   useEffect(() => {
     genarate_date_array(start_date, current_date);
@@ -85,8 +96,8 @@ const Teacher = () => {
         </table>
         <div className="overflow-x-scroll">
           <table className=" boder-1  border-black ">
-            <thead >
-              <tr >
+            <thead>
+              <tr>
                 {date_arr.map((item, index) => (
                   <th className="border-1 border-black p-2 w-fit" key={index}>
                     {item}
@@ -95,14 +106,16 @@ const Teacher = () => {
               </tr>
             </thead>
             <tbody>
-              {
-                student_detail.map((item,index)=>(<tr key={index}> {
-                  date_arr.map((date,ind)=>(
-                    
-                    <td className="border-1 border-black p-2 w-fit" key={ind}>{ item.attandance[date]==undefined?'NE':item.attandance[date]}</td>
-                  ))
-                }</tr>))
-              }
+              {student_detail.map((item, index) => (
+                <tr key={index}>
+                  {" "}
+                  {date_arr.map((date, ind) => (
+                    <td className="border-1 border-black p-2 w-fit" key={ind}>
+                      <input id={item.student_id} name={date} value={item.attandance[date] === undefined ? "NE" : item.attandance[date]} onChange={handleChange}  />
+                    </td>
+                  ))}
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>
