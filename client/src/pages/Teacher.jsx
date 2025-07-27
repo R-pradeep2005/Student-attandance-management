@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const Teacher = () => {
   const [date_arr, setDate_arr] = useState([]);
@@ -54,9 +55,9 @@ const Teacher = () => {
     <div className="flex flex-col p-4 items-center">
       <h1 className="text-[24px] font-semibold ">Teacher's Panel</h1>
       <div className="flex flex-row justify-between w-full">
-        <button className="bg-blue-600 text-white rounded-xl p-2 font-bold">
+        <Link to={'/AddStudent'} className="bg-blue-600 text-white rounded-xl p-2 font-bold">
           Add Student
-        </button>
+        </Link>
         <button className="bg-blue-600 text-white rounded-xl p-2 font-bold">
           Track Attandance
         </button>
