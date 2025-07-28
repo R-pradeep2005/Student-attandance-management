@@ -20,7 +20,7 @@ const Login = () => {
       },
       body: JSON.stringify({ id: id, password: password, user: user }),
     }).then((response)=>(response.json())).then((permision)=>{
-             permision.permission?navigate(`/${user}`):console.log('not a valid cred');
+             permision.permission?navigate(`/${user}`):null;
              
     
      });

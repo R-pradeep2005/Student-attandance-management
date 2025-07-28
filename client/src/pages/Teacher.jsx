@@ -5,16 +5,22 @@ const Teacher = () => {
   const [date_arr, setDate_arr] = useState([]);
   const [student_detail,setStudent_detail] = useState([
     {
-      name: "jhon",
-      student_id: "001",
-      attandance: { "20/1": "P", "23/1": "A", "30/1": "P" },
-    },
-    {
-      name: "kumar",
-      student_id: "002",
-      attandance: { "23/1": "A", "30/1": "P" },
-    },
+      name: "",
+      student_id: "",
+      attandance: {},
+    }
+     
   ]);
+
+  useEffect(()=>{
+    fetch('http://localhost:5000/Teacher',{
+      method:'GET'
+    }).then((response)=>(response.json())).then((data)=>{
+      setStudent_detail(data);
+      console.log(data);
+      
+    })
+  },[])
 
   const start_date = "20/01/2025";
   const current_date = "30/01/2025";
@@ -45,8 +51,15 @@ const Teacher = () => {
                
             
         )
+        
   }
-
+const handleUpdate = () => {
+  fetch('http://localhost:5000/Teacher',{
+          method:'POST',
+          headers:{"content-type":"application/json"},
+          body:JSON.stringify(student_detail)
+        })
+}
   useEffect(() => {
     genarate_date_array(start_date, current_date);
   }, [start_date]);
@@ -58,8 +71,8 @@ const Teacher = () => {
         <Link to={'/AddStudent'} className="bg-blue-600 text-white rounded-xl p-2 font-bold">
           Add Student
         </Link>
-        <button className="bg-blue-600 text-white rounded-xl p-2 font-bold">
-          Track Attandance
+        <button onClick={handleUpdate} className="bg-blue-600 text-white rounded-xl p-2 font-bold">
+          Update Attandance
         </button>
       </div>
       <h1 className="text-l font-semibold mt-2 self-start">
