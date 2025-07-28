@@ -1,10 +1,26 @@
 import React from "react";
+const handleSubmit = (e) => {
+  e.preventDefault();
+  const data =new FormData(e.target);
+  const student=Object.fromEntries(data.entries());
+  
+
+
+      fetch('http://localhost:5000/AddStudent',{
+        method:'POST',
+        headers:{
+          "content-type":"application/json",
+        },
+        body:JSON.stringify(student)
+
+      })
+}
 
 const AddStudent = () => {
   return (
     <div className="flex flex-col items-center">
       <h1 className="font-bold text-[24px]">Add new Student</h1>
-      <form className="flex flex-col items-start gap-2 mt-6">
+      <form onSubmit={handleSubmit} className="flex flex-col items-start gap-2 mt-6">
         <label htmlFor="">Name</label>
         <input name="name"
           className="border-1 border-black rounded-xl w-fit p-2"
