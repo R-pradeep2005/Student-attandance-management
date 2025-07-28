@@ -121,6 +121,9 @@ const Teacher = () => {
           </table>
         </div>
       </div>
+     <Link to={'/'} className="bg-blue-600 text-white rounded-xl p-2 font-bold">
+          Log out
+        </Link>
     </div>
   );
 };
