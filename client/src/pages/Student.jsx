@@ -5,15 +5,14 @@ import { Link } from "react-router-dom";
 
 const Student = () => {
   const[student,setStudent_data]=useState({
-    start:'',
-    end:'',
     name: "",
     email: "",
     phone: "",
     student_id: "",
     attandance: { },
   })
-  
+   const start= '20/1/2025';
+   const end='30/1/2025';
 
   useEffect(()=>{
     fetch('http://localhost:5000/Student',{
@@ -76,7 +75,7 @@ const Student = () => {
         </tr>
       </table>
       <h3 className="font-semibold">
-        Total attandance:{attandance_percentage(student.start,student.end)}%
+        Total attandance:{attandance_percentage(start,end)}%
       </h3>
       <Link to={'/'}  className="bg-blue-600 text-white rounded-xl p-2 font-bold">Log out</Link>
 

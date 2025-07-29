@@ -1,8 +1,6 @@
 const express=require('express');
 const router=express.Router();
 const student = {
-    start:'20/1/2025',
-    end:'30/1/2025',
     name: "pradeep",
     email: "example@email.com",
     phone: "9090980980",
