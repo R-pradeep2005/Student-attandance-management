@@ -1,5 +1,6 @@
 const express=require('express')
 const router =express.Router();
+const admin= require('../model/admin')
 
 const student={
     id:'s002',
@@ -9,6 +10,13 @@ const teacher={
     id:'t002',
     password:'1234'
 }
+
+const data=admin.find().then(()=>{
+    console.log('found sucessfully');
+    
+});
+console.log();
+
 
 router.get('/',(req,res)=>{
     res.json({message:student.id});
