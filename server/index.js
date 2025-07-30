@@ -7,6 +7,8 @@ const StudentRouter = require("./routes/student");
 const TeacherRouter = require("./routes/Teacher");
 const AddStudentRouter = require("./routes/AddStudent");
 const cors = require("cors");
+const admin = require("./model/admin");
+const student = require("./model/student");
 mongoose
   .connect(process.env.MONGODB)
   .then(() => {
@@ -15,7 +17,6 @@ mongoose
   .catch((err) => {
     console.error("error occured in monogo connection", err);
   });
-
 app.use(cors());
 app.use(express.json());
 app.use("/", LoginRouter);

@@ -1,29 +1,30 @@
-const express=require('express')
-const router =express.Router();
-const admin= require('../model/admin')
+const express = require("express");
+const router = express.Router();
+const admin = require("../model/admin");
 
-const student={
-    id:'s002',
-    password:'1234'
-}
-const teacher={
-    id:'t002',
-    password:'1234'
-}
-
-const data=admin.find().then(()=>{
-    console.log('found sucessfully');
-    
+const data = admin.find().then(() => {
+  console.log("found sucessfully");
 });
 console.log();
 
+router.get("/", (req, res) => {
+  res.json({ message: student.id });
+});
+router.post("/", async (req, res) => {
+  let teacher;
+  let student;
+  const student_data = await admin.findOne({});
+  student_data.teacher_id==req.body.id&&student_data.teacher_password==req.body.password?teacher= true: teacher=false;
+  student_data.student_id==req.body.id&&student_data.student_password==req.body.password?student=true:student=false;
+  console.log(student_data.teacher_id);
 
-router.get('/',(req,res)=>{
-    res.json({message:student.id});
-})
-router.post('/',(req,res)=>{
-     req.body.user=='Student'?req.body.id==student.id&&req.body.password==student.password?res.json({permission:true}):res.json({permission:false}):req.body.id==teacher.id&&req.body.password==teacher.password?res.json({permission:true}):res.json({permission:false})
-     
-})
+  req.body.user == "Student"
+    ? student
+      ? res.json({ permission: true })
+      : res.json({ permission: false })
+    : teacher
+    ? res.json({ permission: true })
+    : res.json({ permission: false });
+});
 
-module.exports= router
+module.exports = router;

@@ -4,7 +4,8 @@ const studentschema= new mongoose.Schema({
     name:String,
     id:String,
     email:String,
-    phone:String,
+    phone_no:String,
+    password:String,
     attandance:{
         type:Map,
         of:String

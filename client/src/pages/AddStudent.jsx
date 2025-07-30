@@ -3,6 +3,8 @@ const handleSubmit = (e) => {
   e.preventDefault();
   const data =new FormData(e.target);
   const student=Object.fromEntries(data.entries());
+  console.log(student);
+  
   
 
 
@@ -22,24 +24,24 @@ const AddStudent = () => {
       <h1 className="font-bold text-[24px]">Add new Student</h1>
       <form onSubmit={handleSubmit} className="flex flex-col items-start gap-2 mt-6">
         <label htmlFor="">Name</label>
-        <input name="name"
+        <input name="name" type="text"
           className="border-1 border-black rounded-xl w-fit p-2"
           placeholder="enter name of the student"
         />
         <label htmlFor="">Email</label>
-        <input name="email"
+        <input name="email" type="email"
           className="border-1 border-black rounded-xl w-fit p-2"
           placeholder="example@email.com"
         />
 
         <label htmlFor="">Phone No</label>
-        <input name="phone_no"
+        <input name="phone_no" type="text"
           className="border-1 border-black rounded-xl w-fit p-2"
           placeholder="+91 ..."
         />
         
         <label htmlFor="">Password</label>
-        <input name="password"
+        <input name="password" type="text"
           className="border-1 border-black rounded-xl w-fit p-2"
           placeholder="enter a password"
         />
