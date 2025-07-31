@@ -3,24 +3,24 @@ import { Link } from "react-router-dom";
 
 const Teacher = () => {
   const [date_arr, setDate_arr] = useState([]);
-  const [student_detail,setStudent_detail] = useState([
+  const [student_detail, setStudent_detail] = useState([
     {
       name: "",
-      student_id: "",
+      id: "",
       attandance: {},
-    }
-     
+    },
   ]);
 
-  useEffect(()=>{
-    fetch('http://localhost:5000/Teacher',{
-      method:'GET'
-    }).then((response)=>(response.json())).then((data)=>{
-      setStudent_detail(data);
-      console.log(data);
-      
+  useEffect(() => {
+    fetch("http://localhost:5000/Teacher", {
+      method: "GET",
     })
-  },[])
+      .then((response) => response.json())
+      .then((data) => {
+        setStudent_detail(Object.keys(data.attandance).length>0?data.map((item)=>({item})):data.map((item) => ({ ...item, attandance: {} })));
+        console.log(data.attandance);
+      });
+  }, []);
 
   const start_date = "20/01/2025";
   const current_date = "30/01/2025";
@@ -43,23 +43,24 @@ const Teacher = () => {
   };
 
   const handleChange = (e) => {
-        const id=e.target.id;
-        const date=e.target.name;
-        const status=e.target.value
-        setStudent_detail(
-            (perv)=>perv.map((item)=>( item.student_id==id?{...item,attandance:{...item.attandance,[date]:status}}:item))
-               
-            
-        )
-        
-  }
-const handleUpdate = () => {
-  fetch('http://localhost:5000/Teacher',{
-          method:'POST',
-          headers:{"content-type":"application/json"},
-          body:JSON.stringify(student_detail)
-        })
-}
+    const id = e.target.id;
+    const date = e.target.name;
+    const status = e.target.value;
+    setStudent_detail((perv) =>
+      perv.map((item) =>
+        item.id == id
+          ? { ...item, attandance: { ...item.attandance, [date]: status } }
+          : item
+      )
+    );
+  };
+  const handleUpdate = () => {
+    fetch("http://localhost:5000/Teacher", {
+      method: "PUT",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(student_detail.map((item)=>({id:item.id,attandance:item.attandance}))),
+    });
+  };
   useEffect(() => {
     genarate_date_array(start_date, current_date);
   }, [start_date]);
@@ -68,10 +69,16 @@ const handleUpdate = () => {
     <div className="flex flex-col p-4 items-center">
       <h1 className="text-[24px] font-semibold ">Teacher's Panel</h1>
       <div className="flex flex-row justify-between w-full">
-        <Link to={'/AddStudent'} className="bg-blue-600 text-white rounded-xl p-2 font-bold">
+        <Link
+          to={"/AddStudent"}
+          className="bg-blue-600 text-white rounded-xl p-2 font-bold"
+        >
           Add Student
         </Link>
-        <button onClick={handleUpdate} className="bg-blue-600 text-white rounded-xl p-2 font-bold">
+        <button
+          onClick={handleUpdate}
+          className="bg-blue-600 text-white rounded-xl p-2 font-bold"
+        >
           Update Attandance
         </button>
       </div>
@@ -99,7 +106,7 @@ const handleUpdate = () => {
                   {index + 1}
                 </td>
                 <td className=" border boder-2 border-black p-2 w-fit">
-                  {item.student_id}
+                  {item.id}
                 </td>
                 <td className=" border boder-2 border-black p-2 w-fit">
                   {item.name}
@@ -125,7 +132,16 @@ const handleUpdate = () => {
                   {" "}
                   {date_arr.map((date, ind) => (
                     <td className="border-1 border-black p-2 w-fit" key={ind}>
-                      <input id={item.student_id} name={date} value={item.attandance[date] === undefined ? "NE" : item.attandance[date]} onChange={handleChange}  />
+                      <input
+                        id={item.id}
+                        name={date}
+                        value={
+                          item.attandance[date] === undefined
+                            ? "NE"
+                            : item.attandance[date]
+                        }
+                        onChange={handleChange}
+                      />
                     </td>
                   ))}
                 </tr>
@@ -134,9 +150,12 @@ const handleUpdate = () => {
           </table>
         </div>
       </div>
-     <Link to={'/'} className="bg-blue-600 text-white rounded-xl p-2 font-bold">
-          Log out
-        </Link>
+      <Link
+        to={"/"}
+        className="bg-blue-600 text-white rounded-xl p-2 font-bold"
+      >
+        Log out
+      </Link>
     </div>
   );
 };
