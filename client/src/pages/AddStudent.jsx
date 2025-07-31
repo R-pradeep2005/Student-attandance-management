@@ -1,8 +1,12 @@
 import React from "react";
+import { useRef } from "react";
 import { useState } from "react";
+import {useNavigate} from 'react-router-dom'
 import Swal from "sweetalert2";
 
 const AddStudent = () => {
+  const formRef =useRef(null)
+  const navigate =useNavigate()
   const handleSubmit = (e) => {
     e.preventDefault();
     const data = new FormData(e.target);
@@ -15,13 +19,20 @@ const AddStudent = () => {
       },
       body: JSON.stringify(student),
     })
-      .then((response) => {
-        response.json();
-      })
+      .then((response) => (
+        response.json())
+      )
       .then((res) => {
         console.log(res);
-        
-        res.addstudent? window.alert('added sucessfully') : null;
+
+        formRef.current.reset()
+        res? Swal.fire({title:'Student added the successfully !',
+                        text:'Click Ok  to navigate to -> dashboard ',
+                        buttons:true,
+                        showCancelButton:true
+
+        }).then((result)=>{result.isConfirmed?navigate('/Teacher'):null}):null
+       
       });
   };
 
@@ -29,6 +40,7 @@ const AddStudent = () => {
     <div className="flex flex-col items-center">
       <h1 className="font-bold text-[24px]">Add new Student</h1>
       <form
+        ref={formRef}
         onSubmit={handleSubmit}
         className="flex flex-col items-start gap-2 mt-6"
       >
@@ -38,6 +50,7 @@ const AddStudent = () => {
           type="text"
           className="border-1 border-black rounded-xl w-fit p-2"
           placeholder="enter name of the student"
+          required
         />
         <label htmlFor="">Email</label>
         <input
@@ -45,6 +58,7 @@ const AddStudent = () => {
           type="email"
           className="border-1 border-black rounded-xl w-fit p-2"
           placeholder="example@email.com"
+          required
         />
 
         <label htmlFor="">Phone No</label>
@@ -53,6 +67,7 @@ const AddStudent = () => {
           type="text"
           className="border-1 border-black rounded-xl w-fit p-2"
           placeholder="+91 ..."
+          required
         />
 
         <label htmlFor="">Password</label>
@@ -61,12 +76,13 @@ const AddStudent = () => {
           type="text"
           className="border-1 border-black rounded-xl w-fit p-2"
           placeholder="enter a password"
+          required
         />
         <button
           className="bg-blue-600 text-white rounded-xl p-2 font-bold w-full mt-4"
           type="submit"
         >
-          Submit
+          Add student
         </button>
       </form>
     </div>
