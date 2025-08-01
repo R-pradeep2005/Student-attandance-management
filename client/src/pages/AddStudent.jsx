@@ -38,7 +38,7 @@ const AddStudent = () => {
 
   return (
     <div className="flex flex-col items-center">
-      <div className="w-full flex flex-row justify-start"><button onClick={()=>(navigate('/Teacher'))} className="bg-blue-600 text-white rounded-xl p-2 font-bold w-fit mt-4">Back</button></div>
+      <div className="w-full flex flex-row justify-start"><button onClick={()=>(navigate('/Teacher'))} className="bg-blue-600 hover:bg-blue-700 cursor-pointer text-white rounded-xl p-2 font-bold w-fit mt-4">Back</button></div>
       <h1 className="font-bold text-[24px]">Add new Student</h1>
       <form
         ref={formRef}
@@ -80,7 +80,7 @@ const AddStudent = () => {
           required
         />
         <button
-          className="bg-blue-600 text-white rounded-xl p-2 font-bold w-full mt-4"
+          className="bg-blue-600 hover:bg-blue-700 cursor-pointer text-white rounded-xl p-2 font-bold w-full mt-4"
           type="submit"
         >
           Add student

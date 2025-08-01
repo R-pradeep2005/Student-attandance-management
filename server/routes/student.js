@@ -9,6 +9,7 @@ const student = {
   };
 
 router.get('/',(req,res)=>{
+  
     res.json(student)
 })
 
