@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [user, setUser] = useState("Student");
-  const navigate=useNavigate()
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -19,12 +19,18 @@ const Login = () => {
         "content-Type": "application/json",
       },
       body: JSON.stringify({ id: id, password: password, user: user }),
-    }).then((response)=>(response.json())).then((permision)=>{
-             permision.permission?navigate(`/${user}`):window.alert('please enter correct id or password !');
-             
-    
-     }).catch((err)=>{window.alert(`error from server :${err} restart the or start the server`);
-     });
+    })
+      .then((response) => response.json())
+      .then((permision) => {
+        permision.permission
+          ? navigate(`/${user}`, { state: { id } })
+          : window.alert("please enter correct id or password !");
+      })
+      .catch((err) => {
+        window.alert(
+          `error from server :${err} restart the or start the server`
+        );
+      });
   };
 
   return (
@@ -35,7 +41,9 @@ const Login = () => {
       <div className="flex flex-row gap-5  w-fit justify-stretch ">
         <button
           className={`${
-            user == "Student" ? "bg-blue-600 border-0 hover:bg-blue-700 cursor-pointer text-white" : "hover:bg-gray-300"
+            user == "Student"
+              ? "bg-blue-600 border-0 hover:bg-blue-700 cursor-pointer text-white"
+              : "hover:bg-gray-300"
           }  border-[1.5px] border-black p-3 rounded-xl  cursor-pointer text-black font-bold`}
           onClick={() => setUser("Student")}
         >
@@ -43,7 +51,9 @@ const Login = () => {
         </button>
         <button
           className={`${
-            user == "Teacher" ? "bg-blue-600 hover:bg-blue-700 cursor-pointer border-0 text-white" : "hover:bg-gray-300"
+            user == "Teacher"
+              ? "bg-blue-600 hover:bg-blue-700 cursor-pointer border-0 text-white"
+              : "hover:bg-gray-300"
           } border-[1.5px] border-black p-3   cursor-pointer rounded-xl text-black font-bold`}
           onClick={() => setUser("Teacher")}
         >

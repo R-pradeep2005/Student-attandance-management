@@ -1,22 +1,26 @@
 import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Student = () => {
   const[student,setStudent_data]=useState({
     name: "",
     email: "",
-    phone: "",
+    phone_no: "",
     student_id: "",
     attandance: { },
   })
+  const st_id=useLocation().state;
+   
    const start= '20/1/2025';
    const end='30/1/2025';
 
   useEffect(()=>{
-    fetch('http://localhost:5000/Student',{
-      method:'GET'
+    
+    fetch(`http://localhost:5000/Student?std_id=${st_id.id}`,{
+      method:'GET',
+      headers:{"content-type":"application/json"},
     }).then((response)=>(response.json())).then((data)=>{
           setStudent_data(data)
         
@@ -70,7 +74,7 @@ const Student = () => {
             phone
           </td>
           <td className="vertical-header border boder-2 border-black p-2  font-normal w-fit">
-            {student.phone}
+            {student.phone_no}
           </td>
         </tr>
       </table>

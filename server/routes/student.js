@@ -1,16 +1,13 @@
 const express=require('express');
 const router=express.Router();
-const student = {
-    name: "pradeep",
-    email: "example@email.com",
-    phone: "9090980980",
-    student_id: "001",
-    attandance: { "20/1": "P", "23/1": "P", "30/1": "P" },
-  };
+const student=require('../model/student')
 
-router.get('/',(req,res)=>{
+
+router.get('/',async(req,res)=>{
+  const id =req.query.std_id;
+  const data=await student.findOne({id:id})
   
-    res.json(student)
+    res.json(data)
 })
 
 module.exports=router
