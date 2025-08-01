@@ -9,14 +9,15 @@ const AddStudent = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const data = new FormData(e.target);
-    const student = Object.fromEntries(data.entries());
-
+    const student_data = Object.fromEntries(data.entries());
+    student_data.attandance={};
+     
     fetch("http://localhost:5000/AddStudent", {
       method: "POST",
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify(student),
+      body: JSON.stringify(student_data),
     })
       .then((response) => (
         response.json())

@@ -20,9 +20,10 @@ const Login = () => {
       },
       body: JSON.stringify({ id: id, password: password, user: user }),
     }).then((response)=>(response.json())).then((permision)=>{
-             permision.permission?navigate(`/${user}`):null;
+             permision.permission?navigate(`/${user}`):window.alert('please enter correct id or password !');
              
     
+     }).catch((err)=>{window.alert(`error from server :${err} restart the or start the server`);
      });
   };
 
@@ -34,16 +35,16 @@ const Login = () => {
       <div className="flex flex-row gap-5  w-fit justify-stretch ">
         <button
           className={`${
-            user == "Student" ? "bg-blue-600 border-0 text-white" : null
-          }  border-[1.5px] border-black p-3 rounded-xl text-black font-bold`}
+            user == "Student" ? "bg-blue-600 border-0 hover:bg-blue-700 cursor-pointer text-white" : "hover:bg-gray-300"
+          }  border-[1.5px] border-black p-3 rounded-xl  cursor-pointer text-black font-bold`}
           onClick={() => setUser("Student")}
         >
           Student
         </button>
         <button
           className={`${
-            user == "Teacher" ? "bg-blue-600 border-0 text-white" : null
-          } border-[1.5px] border-black p-3 rounded-xl text-black font-bold`}
+            user == "Teacher" ? "bg-blue-600 hover:bg-blue-700 cursor-pointer border-0 text-white" : "hover:bg-gray-300"
+          } border-[1.5px] border-black p-3   cursor-pointer rounded-xl text-black font-bold`}
           onClick={() => setUser("Teacher")}
         >
           Teacher
@@ -70,7 +71,7 @@ const Login = () => {
           required
         />
         <button
-          className="bg-blue-600 p-3 rounded-xl text-white font-bold w-full mt-4"
+          className="bg-blue-600 p-3 rounded-xl hover:bg-blue-700 cursor-pointer text-white font-bold w-full mt-4"
           type="submit"
         >
           Login

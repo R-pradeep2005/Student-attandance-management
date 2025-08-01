@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 const Teacher = () => {
   const [date_arr, setDate_arr] = useState([]);
+  const [student_count,set_count]=useState(0);
   const [student_detail, setStudent_detail] = useState([
     {
       name: "",
@@ -17,8 +18,10 @@ const Teacher = () => {
     })
       .then((response) => response.json())
       .then((data) => {
-        setStudent_detail(Object.keys(data.attandance).length>0?data.map((item)=>({item})):data.map((item) => ({ ...item, attandance: {} })));
-        console.log(data.attandance);
+         console.log(data);
+        setStudent_detail(data.map((item)=>(item)));
+        set_count(data.length);
+       
       });
   }, []);
 
@@ -83,7 +86,7 @@ const Teacher = () => {
         </button>
       </div>
       <h1 className="text-l font-semibold mt-2 self-start">
-        Total Students {45}
+        Total Students {student_count}
       </h1>
       <h1 className="text-l font-semibold mt-2 self-start">
         List of all students
