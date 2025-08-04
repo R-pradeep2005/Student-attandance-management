@@ -9,7 +9,7 @@ const data = admin.find().then(() => {
 console.log();
 
 router.get("/", (req, res) => {
-  res.json({ message: student.id });
+  res.json({ message: "hello" });
 });
 router.post("/", async (req, res) => {
   let teacher;
@@ -19,7 +19,7 @@ router.post("/", async (req, res) => {
 
  if(req.body.user == "Student"){
      const student_pass=await student.findOne({id:req.body.id})
-     student_pass.password==req.body.password ? res.json({ permission: true })
+     student_pass!=null&&student_pass.password==req.body.password ? res.json({ permission: true })
     : res.json({ permission: false });
     }
   else{

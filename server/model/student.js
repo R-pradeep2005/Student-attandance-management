@@ -1,4 +1,5 @@
 const mongoose=require('mongoose');
+const bcrypt=require('bcrypt')
 
 const studentschema= new mongoose.Schema({
     name:String,
@@ -9,6 +10,21 @@ const studentschema= new mongoose.Schema({
     attandance:{
         type:Map,
         of:String
+    }
+})
+
+studentschema.pre('save',async function(next){
+    if(!this.isModified('password')) return next()
+    try {
+
+    const salt = await bcrypt.genSalt(10);
+    const hash= await bcrypt.hash(this.password,salt);
+    this.password=hash;
+    next();
+}
+    catch(error)
+    {
+        next(error)
     }
 })
 
