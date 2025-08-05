@@ -1,7 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Teacher = () => {
+  const navigate = useNavigate();
   const [date_arr, setDate_arr] = useState([]);
   const checkboxRef=useRef([]);  
   const [student_count,set_count]=useState(0);
@@ -16,12 +18,18 @@ const Teacher = () => {
   
 
   useEffect(() => {
+    const token = localStorage.getItem('token');
     fetch("http://localhost:5000/Teacher", {
       method: "GET",
+      headers:{
+        'Authorization':`Bearer ${token}`
+      }
     })
-      .then((response) => response.json())
+      .then((response) =>{if(!response.ok){window.alert('error in authentication not a valid jwt token'); navigate('/'); throw new Error('authenticaion error')}else{return response.json()}})
       .then((data) => {
-         console.log(data);
+        if(data.message){
+          window.alert(data.message)
+        }
         setStudent_detail(data.map((item)=>(item)));
         set_count(data.length);
        
@@ -37,9 +45,11 @@ const Teacher = () => {
         element.checked?deleted_item.push(element.name):null;
                   
       });
+      const token= localStorage.getItem('token')
       fetch('http://localhost:5000/Teacher',{
         method:"DELETE",
         headers:{
+          'Authorization':`Bearer ${token}`,
           "content-type":"application/json"
         },
         body:JSON.stringify(deleted_item)
@@ -84,9 +94,12 @@ const Teacher = () => {
     );
   };
   const handleUpdate = () => {
+    const token=localStorage.getItem('token');
     fetch("http://localhost:5000/Teacher", {
       method: "PUT",
-      headers: { "content-type": "application/json" },
+      headers: { 
+        'Authorization':`Bearer ${token}`,
+        "content-type": "application/json" },
       body: JSON.stringify(student_detail.map((item)=>({id:item.id,attandance:item.attandance}))),
     }).then((response)=>{
       response?window.alert('updated to DB sucessfully'):null;

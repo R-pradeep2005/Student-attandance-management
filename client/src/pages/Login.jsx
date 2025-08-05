@@ -21,11 +21,14 @@ const Login = () => {
       },
       body: JSON.stringify({ id: id, password: password, user: user }),
     })
-      .then((response) => response.json())
+      .then((response) =>{ 
+        if(!response.ok){throw new Error('Invalid Credential')}
+        
+        else{ return response.json()}})
       .then((permision) => {
-        permision.permission
-          ? navigate(`/${user}`, { state: { id } })
-          : window.alert("please enter correct id or password !");
+          localStorage.setItem('token',permision.token)
+          navigate(`/${user}`, { state: { id } })
+           
       })
       .catch((err) => {
         window.alert(

@@ -27,6 +27,9 @@ studentschema.pre('save',async function(next){
         next(error)
     }
 })
+studentschema.methods.comparepassword=async function (password){
+    return bcrypt.compare(password,this.password)
+};
 
 const student=mongoose.model('Students',studentschema);
 

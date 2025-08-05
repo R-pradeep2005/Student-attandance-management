@@ -11,10 +11,11 @@ const AddStudent = () => {
     const data = new FormData(e.target);
     const student_data = Object.fromEntries(data.entries());
     student_data.attandance={};
-     
+    const token=localStorage.getItem('token');
     fetch("http://localhost:5000/AddStudent", {
       method: "POST",
       headers: {
+        'Authorization':`Bearer ${token}`,
         "content-type": "application/json",
       },
       body: JSON.stringify(student_data),
