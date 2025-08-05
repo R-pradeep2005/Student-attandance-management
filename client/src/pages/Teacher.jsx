@@ -25,7 +25,7 @@ const Teacher = () => {
         'Authorization':`Bearer ${token}`
       }
     })
-      .then((response) =>{if(!response.ok){window.alert('error in authentication not a valid jwt token'); navigate('/'); throw new Error('authenticaion error')}else{return response.json()}})
+      .then((response) =>{if(!response.ok){window.alert('error in authentication not a valid jwt token');navigate('/');  throw new Error('authenticaion error')} else{return response.json()}})
       .then((data) => {
         if(data.message){
           window.alert(data.message)
