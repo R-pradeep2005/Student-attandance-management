@@ -50,7 +50,7 @@ const AddStudent = () => {
         <input
           name="name"
           type="text"
-          className="border-1 border-black rounded-xl w-fit p-2"
+          className="border-1 border-gray-600  rounded-xl w-fit p-2"
           placeholder="enter name of the student"
           required
         />
@@ -58,7 +58,7 @@ const AddStudent = () => {
         <input
           name="email"
           type="email"
-          className="border-1 border-black rounded-xl w-fit p-2"
+          className="border-1 border-gray-600  rounded-xl w-fit p-2"
           placeholder="example@email.com"
           required
         />
@@ -67,7 +67,7 @@ const AddStudent = () => {
         <input
           name="phone_no"
           type="text"
-          className="border-1 border-black rounded-xl w-fit p-2"
+          className="border-1 border-gray-600  rounded-xl w-fit p-2"
           placeholder="+91 ..."
           required
         />
@@ -76,7 +76,7 @@ const AddStudent = () => {
         <input
           name="password"
           type="text"
-          className="border-1 border-black rounded-xl w-fit p-2"
+          className="border-1 border-gray-600  rounded-xl w-fit p-2"
           placeholder="enter a password"
           required
         />

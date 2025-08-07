@@ -55,41 +55,41 @@ const Student = () => {
   };
 
   return (
-    <div className="flex flex-col items-center gap-4">
-      <h1 className="font-bold text-[32px]">Welcome {student.name}!</h1>
-      <h3 className="font-semibold">Student info</h3>
+    <div className="flex flex-col items-center justify-center gap-4 ">
+      <h1 className="font-bold mt-12 text-[32px] text-gray-400">Welcome {student.name}!</h1>
+      <h3 className="font-semibold mt-4">Student info</h3>
       <table>
         <tr>
-          <td className="vertical-header border boder-2 border-black p-2 w-fit">
-            name
+          <td className="vertical-header border boder-2 border-white p-2 w-fit">
+            Name
           </td>
-          <td className="vertical-header border boder-2 border-black p-2  font-normal w-fit">
+          <td className="vertical-header border boder-2 border-white p-2  font-normal w-fit">
             {student.name}
           </td>
         </tr>
         <tr>
-          <td className="vertical-header border boder-2 border-black p-2 w-fit">
-            email
+          <td className="vertical-header border boder-2 border-white p-2 w-fit">
+            Email
           </td>
-          <td className="vertical-header border boder-2 border-black p-2  font-normal w-fit">
+          <td className="vertical-header border boder-2 border-white p-2  font-normal w-fit">
             {student.email}
           </td>
         </tr>
         <tr>
-          <td className="vertical-header border boder-2 border-black p-2 w-fit">
-            phone
+          <td className="vertical-header border boder-2 border-white p-2 w-fit">
+            Phone
           </td>
-          <td className="vertical-header border boder-2 border-black p-2  font-normal w-fit">
+          <td className="vertical-header border boder-2 border-white p-2  font-normal w-fit">
             {student.phone_no}
           </td>
         </tr>
       </table>
       <h3 className="font-semibold">
-        Total attandance:{attandance_percentage(start, end)}%
+        Total attandance : {attandance_percentage(start, end)}%
       </h3>
       <Link
         to={"/"}
-        className="bg-blue-600 text-white rounded-xl p-2 font-bold"
+        className="bg-red-600 mt-4 text-white rounded-xl p-2 font-bold"
       >
         Log out
       </Link>

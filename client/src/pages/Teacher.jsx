@@ -1,9 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import {Tooltip} from 'react-tooltip';
 
 const Teacher = () => {
   const navigate = useNavigate();
+  
+  const [tooltip,settooltip]=useState(true);
   const [date_arr, setDate_arr] = useState([]);
   const checkboxRef=useRef([]);  
   const [student_count,set_count]=useState(0);
@@ -110,9 +113,9 @@ const Teacher = () => {
   }, [start_date]);
 
   return (
-    <div className="flex flex-col p-4 items-center">
+    <div className="flex flex-col p-4  items-center">
       <h1 className="text-[24px] font-semibold ">Teacher's Panel</h1>
-      <div className="flex flex-row justify-between w-full">
+      <div className="flex flex-row mt-12 mb-8 justify-between w-full">
         <Link
           to={"/AddStudent"}
           className="bg-blue-600 hover:bg-blue-700 cursor-pointer text-white rounded-xl p-2 font-bold"
@@ -126,95 +129,95 @@ const Teacher = () => {
           Update Attandance
         </button>
       </div>
-      <h1 className="text-l font-semibold mt-2 self-start">
-        Total Students {student_count}
+      <h1 className="text-l text-gray-400 font-semibold mt-2 self-start">
+        Total Students : <span className="text-white">{student_count}</span >
       </h1>
-      <h1 className="text-l font-semibold mt-2 self-start">
-        List of all students
-      </h1>
+     
       <button
           onClick={handledelete}
-           className="bg-red-600 hover:bg-red-700 self-start m-4 ml-0 cursor-pointer text-white rounded-xl p-2 font-bold"
+           className="bg-red-600 hover:bg-red-700 self-start  ml-0  mt-6 cursor-pointer text-white rounded-xl p-2 font-bold"
         >
           Delete selected Students
         </button>
+         <h1 className="text-l mb-4 text-gray-400 font-semibold mt-2 self-start">
+        List of all students
+      </h1>
        <div className="flex flex-row  items-center max-w-[90vw]"> 
         {student_detail.length==0?
-        "NO student added yet"
+        "No student added yet !"
         :
-        <div className="flex flex-row w-full justify-start">
-        
-           <table className=" border-collapse boder-2 border-black p-2 w-fit self-start ">
-          <thead>
-            <tr>
-              <th className=" border boder-2 border-black p-2 w-fit">Select</th>
-              <th className=" border boder-2 border-black p-2 w-fit">S.no</th>
-              <th className=" border boder-2 border-black p-2 w-fit">
-                Student_id
-              </th>
-              <th className=" border boder-2 border-black p-2 w-fit">Name</th>
-            </tr>
-          </thead>
-          <tbody>
-            {student_detail.map((item, index) => (
-              <tr key={index}>
-                <td className=" border boder-2 border-black p-2 w-fit"><input ref={(el)=>(checkboxRef.current[index]=el)} name={item.id} type="checkbox"/></td>
-                <td className=" border boder-2 border-black p-2 w-fit">
-                  {index + 1}
-                </td>
-                <td className=" border boder-2 border-black p-2 w-fit">
-                  {item.id}
-                </td>
-                <td className=" border boder-2 border-black p-2 w-fit">
-                  {item.name}
-                </td>
-              </tr>
+        <div className="flex flex-row border-[1.5px] bg-[#50505042] border-gray-500 rounded-2xl overflow-hidden w-full justify-start ">
+  <table className="border-collapse    w-fit self-start">
+    <thead>
+      <tr className="bg-[#323232] ">
+        <th className="p-2 w-fit">Select</th>
+        <th className="p-2 w-fit">S.no</th>
+        <th className="p-2 w-fit">Student_id</th>
+        <th className="p-2 w-fit">Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      {student_detail.map((item, index) => (
+        <tr key={index}>
+          <td className="p-2 w-fit">
+            <input
+              ref={(el) => (checkboxRef.current[index] = el)}
+              name={item.id}
+              type="checkbox"
+              className="accent-red-600"
+            />
+          </td>
+          <td className="p-2 w-fit">{index + 1}</td>
+          <td className="p-2 w-fit">{item.id}</td>
+          <td className="p-2 w-fit">{item.name}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+
+  <div  className="overflow-x-scroll scrollbar-thin scrollbar-track-black  ">
+    <table data-tooltip-id="table_tooltip" className="">
+      <thead>
+        <tr className="bg-[#323232]  ">
+          {date_arr.map((item, index) => (
+            <th className=" p-2 w-fit" key={index}>
+              {item}
+            </th>
+          ))}
+        </tr>
+      </thead>
+      <tbody>
+        {student_detail.map((item, index) => (
+          <tr key={index}>
+            {date_arr.map((date, ind) => (
+              <td className="  p-2 w-fit" key={ind}>
+                <input className={`text-center ${item.attandance[date]=='P'?'text-green-600':item.attandance[date]=='A'?'text-red-500':'text-white'}`}
+                  id={item.id}
+                  name={date}
+                  value={
+                    item.attandance[date] === undefined
+                      ? "NE"
+                      : item.attandance[date]
+                  }
+                  onChange={handleChange}
+                  onFocus={()=>settooltip(false)}
+                />
+              </td>
             ))}
-          </tbody>
-        </table>  
-      
-       
-        <div className="overflow-x-scroll">
-          <table className=" boder-1  border-black ">
-            <thead>
-              <tr>
-                {date_arr.map((item, index) => (
-                  <th className="border-1 border-black p-2 w-fit" key={index}>
-                    {item}
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {student_detail.map((item, index) => (
-                <tr key={index}>
-                  {" "}
-                  {date_arr.map((date, ind) => (
-                    <td className="border-1 border-black p-2 w-fit" key={ind}>
-                      <input
-                        id={item.id}
-                        name={date}
-                        value={
-                          item.attandance[date] === undefined
-                            ? "NE"
-                            : item.attandance[date]
-                        }
-                        onChange={handleChange}
-                      />
-                    </td>
-                  ))}
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </div>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+    <Tooltip id="table_tooltip"  delayShow={1000} float isOpen={tooltip} content="Click on the text to edit attandance status"/> 
+  </div>
+</div>
+
         }
          </div> 
       
       <Link
         to={"/"}
-        className="bg-blue-600 hover:bg-red-700 cursor-pointer text-white rounded-xl p-2 font-bold"
+        className="bg-blue-600 hover:bg-red-700 mt-6 cursor-pointer text-white rounded-xl p-2 font-bold"
       >
         Log out
       </Link>

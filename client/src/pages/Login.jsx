@@ -39,16 +39,16 @@ const Login = () => {
 
   return (
     <div className="flex flex-col items-center justify-center">
-      <h1 className="font-semibold text-[24px] text-blue-500 mb-12">
+      <h1 className="font-semibold text-[24px] text-gray-400 mb-12">
         Welcome to Student attandance<br></br> management login to proceed !
       </h1>
-      <div className="flex flex-row gap-5  w-fit justify-stretch ">
+      <div className="flex flex-row gap-5 mt-4 mb-8  w-fit justify-stretch ">
         <button
           className={`${
             user == "Student"
               ? "bg-blue-600 border-0 hover:bg-blue-700 cursor-pointer text-white"
               : "hover:bg-gray-300"
-          }  border-[1.5px] border-black p-3 rounded-xl  cursor-pointer text-black font-bold`}
+          }  border-[1.5px] border-white p-3 rounded-xl  cursor-pointer text-white font-bold`}
           onClick={() =>{ setUser("Student"); document.getElementById('loginform').reset();}}
         >
           Student
@@ -58,7 +58,7 @@ const Login = () => {
             user == "Teacher"
               ? "bg-blue-600 hover:bg-blue-700 cursor-pointer border-0 text-white"
               : "hover:bg-gray-300"
-          } border-[1.5px] border-black p-3   cursor-pointer rounded-xl text-black font-bold`}
+          } border-[1.5px] border-white p-3   cursor-pointer rounded-xl text-white font-bold`}
           onClick={() =>{ setUser("Teacher"); document.getElementById('loginform').reset();}}
         >
           Teacher
@@ -70,7 +70,7 @@ const Login = () => {
         <input
           name="userid"
           type="text"
-          className="rounded-xl border-1 border-black p-2"
+          className="rounded-xl border-1 mt-2 border-white p-2"
           placeholder="enter the id"
           required
         />
@@ -81,12 +81,13 @@ const Login = () => {
         <input
           name="password"
           type={showpassword?'password':'text'}
-          className="rounded-xl border-1 border-black p-2"
+          className="rounded-xl border-1 mt-2 border-white p-2"
           placeholder="password"
+          
           required
         />
         <span onClick={()=>{setShowpassword(!showpassword)}} className="absolute cursor-pointer left-[55%]">
-         <svg fill="#000000" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+         <svg fill="#ffff" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
 	 width="24px" height="24px" viewBox="0 0 72 72" enable-background="new 0 0 72 72" xml:space="preserve">
 <g>
 	<g>
