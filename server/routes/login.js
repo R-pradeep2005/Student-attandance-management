@@ -17,6 +17,7 @@ router.post("/", async (req, res) => {
 
   if (req.body.user == "Student") {
     const student_pass = await student.findOne({ id: req.body.id });
+
     if (
       student_pass != null &&
       (await student_pass.comparepassword(req.body.password))

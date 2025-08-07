@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const student = require("../model/student");
 const counter = require("../model/counter");
+const { body } = require("express-validator");
 async function getStudent_id(student_id) {
   const data = await counter.findOneAndUpdate(
     { sequence_id: student_id },
@@ -12,8 +13,12 @@ async function getStudent_id(student_id) {
 }
 router.post("/", async(req, res) => {
   const getid=await getStudent_id('studentid');
-  req.body.id=`std_${getid}`
-  console.log(req.body);
+  req.body.id=`std_${getid}`;
+  body('id').escape().trim()
+  body('name').escape().trim()
+    body('email').escape().trim()
+    body('phone_no').escape().trim()
+    body('password').escape().trim()
   const data = new student(req.body);
   data
     .save()
