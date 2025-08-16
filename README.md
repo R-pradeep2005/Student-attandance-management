@@ -1,3 +1,24 @@
+## 📌 Overview  
+
+This project is a **Full-Stack Student Management System** built with the **MERN stack**.  
+It allows administrators and teachers to manage students, track attendance, and secure access through **role-based authentication**.  
+
+Key aspects of the system include:  
+- A clean and responsive **React frontend** with dynamic dashboards  
+- A robust **Node.js & Express backend** with secured APIs  
+- Persistent data storage in **MongoDB** with schema-driven design  
+- **Authentication & Authorization** using JWT tokens and bcrypt password hashing  
+- Modern UI/UX powered by **Tailwind CSS** and enhanced with interactive features  
+
+## ⚡ Technical Highlights
+
+- Built with **MERN Stack** (MongoDB, Express.js, React, Node.js)  
+- Secured with **bcrypt** for password hashing & **JWT** for authentication  
+- Input validation handled using **express-validator**  
+- Styled with **Tailwind CSS** for responsive and modern UI design  
+- Version controlled with **Git & GitHub** for collaboration and source management  
+
+
 # 📘 Project Journey – Student Management System (Commit by Commit)
 
 This project documents my journey of building a **Full-Stack Student Management Application** step by step, commit by commit.  
