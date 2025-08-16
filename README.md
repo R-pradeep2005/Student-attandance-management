@@ -1,192 +1,186 @@
 # 📘 Project Journey – Student Management System (Commit by Commit)
 
-This project documents my journey of building a Full-Stack Student Management Application step by step, commit by commit.  
-The app enables teachers to manage attendance and students to view their records securely.
+This project documents my journey of building a **Full-Stack Student Management Application** step by step, commit by commit.  
+The app enables teachers to manage attendance and students to view their records securely.  
 
 ---
 
-## ✅ Commit 1 – Initial Setup
-- Bootstrapped the project using **Vite** for fast frontend development.
+### [Commit 1 – Initial Setup](https://github.com/R-pradeep2005/Student-attandance-management/commit/3a7c0f6a3ec2257795ecd8431b0c54a0b7a58e87)
+- Bootstrapped the project using **Vite** for fast frontend development.  
 
 ---
 
-## ✅ Commit 2 – Git Configuration
-- Added **.gitignore** to exclude unnecessary project files.
+### [Commit 2 – Git Configuration](https://github.com/R-pradeep2005/Student-attandance-management/commit/ea4a2968eb03fb6490a39b3a4785e5ab0697643e)
+- Added `.gitignore` to exclude unnecessary project files.  
 
 ---
 
-## ✅ Commit 3 – TailwindCSS Setup
-- Installed `@tailwindcss/vite`.
-- Imported Tailwind into `index.css`.
-- Configured `vite.config.js` with the Tailwind plugin.
+### [Commit 3 – TailwindCSS Setup](https://github.com/R-pradeep2005/Student-attandance-management/commit/5188ae1304cf4ad57a81953f40effd0f17e9b245)
+- Installed **@tailwindcss/vite**.  
+- Imported Tailwind into `index.css`.  
+- Configured `vite.config.js` with Tailwind plugin.  
 
 ---
 
-## ✅ Commit 4 – Core Components (Login & Teacher Dashboard)
-- Created **Login** component with role toggle (student/teacher), input fields, and submit button.
-- Built **Teacher** component to display students’ attendance in a table format.
-- Faced a challenge: dates were stored in a separate array, while attendance was an object `{date: status}`.
-- Solved it by mapping over dates and matching them with attendance keys for rendering.
-- Designed a scrollable table layout with fixed student details and horizontally scrollable attendance records.
+### [Commit 4 – Core Components (Login & Teacher Dashboard)](https://github.com/R-pradeep2005/Student-attandance-management/commit/3ac2500645905ca30a50a927d9567c2cdceb2d32)
+- Created **Login component** with role toggle (student/teacher), input fields, and submit button.  
+- Built **Teacher component** to display students’ attendance in a table format.  
+- Faced a challenge: dates were stored in an array, attendance as `{date: status}`.  
+- Solved it by mapping dates and matching keys.  
+- Designed a scrollable table with fixed student info + scrollable attendance.  
 
 ---
 
-## ✅ Commit 5 – Editable Attendance
-- Made attendance statuses editable using `<input>` fields inside table cells.
-- Implemented `onChange` handling to update student data immutably by mapping over the array.
+### [Commit 5 – Editable Attendance](https://github.com/R-pradeep2005/Student-attandance-management/commit/92f05c7137c1597806e1e223a9a401472d5ac39f)
+- Made attendance **editable** using `<input>`.  
+- Used immutable state updates for data consistency.  
 
 ---
 
-## ✅ Commit 6 – Add Students & Student Dashboard
-- Added **AddStudent** page to let teachers add new students.
-- Created **Student** page where students can view attendance percentage and personal info.
+### [Commit 6 – Add Students & Student Dashboard](https://github.com/R-pradeep2005/Student-attandance-management/commit/2001266f26e6d94d45a257aa3cd2602aac85dfec)
+- Added **AddStudent page** for teachers.  
+- Created **Student page** to view attendance percentage and details.  
 
 ---
 
-## ✅ Commit 7 – Routing & Attendance Percentage
-- Installed **React Router DOM**.
-- Set up routes for navigation.
-- Implemented attendance percentage calculation: counted total presents vs total days.
-- Added logout functionality for session handling.
+### [Commit 7 – Routing & Attendance Percentage](https://github.com/R-pradeep2005/Student-attandance-management/commit/5ba926a24a4c617961890020ac2aedc9cf4d9c54)
+- Installed **React Router DOM**.  
+- Setup navigation routes.  
+- Implemented attendance percentage calculation.  
+- Added logout functionality.  
 
 ---
 
-## ✅ Commit 8 – Backend Setup
-- Initialized **Node.js server** using Express.
-- Configured server to listen on port 5000.
+### [Commit 8 – Backend Setup](https://github.com/R-pradeep2005/Student-attandance-management/commit/b5bea0e5ca1b6e1f8e00e7f45def4a0250272757)
+- Initialized **Express.js server**.  
+- Configured to listen on port 5000.  
 
 ---
 
-## ✅ Commit 9 – CORS & Login API
-- Installed **CORS** to enable client-server communication.
-- Created login route with credential validation.
-- Used `FormData` and Fetch API for sending login requests from the frontend.
+### [Commit 9 – CORS & Login API](https://github.com/R-pradeep2005/Student-attandance-management/commit/f6659e04939c9f353aa6daf1fe561dca98fdeae2)
+- Installed **CORS** for client-server communication.  
+- Created login API route.  
+- Used `FormData` + Fetch API for requests.  
 
 ---
 
-## ✅ Commit 10 – Fetch Student Data
-- Implemented **GET API** to send student data as JSON to the frontend.
+### [Commit 10 – Fetch Student Data](https://github.com/R-pradeep2005/Student-attandance-management/commit/95df7d9fe260f686218fc4d3973d85d785703d0c)
+- Implemented **GET API** to fetch student data as JSON.  
 
 ---
 
-## ✅ Commit 11 – Attendance Update
-- Displayed attendance in teacher dashboard using `useEffect` and GET request.
-- Enabled updates via **PUT request**, sending only student ID and updated attendance object.
-- Updated DB immutably on the backend.
+### [Commit 11 – Attendance Update](https://github.com/R-pradeep2005/Student-attandance-management/commit/b1f2906b13103fb03a1548401f8010c98c87344b)
+- Displayed attendance in Teacher Dashboard using `useEffect`.  
+- Added PUT API for updating attendance immutably.  
 
 ---
 
-## ✅ Commit 12 – Add Student API
-- Handled student creation via **POST request** using FormData.
-- Converted form data into objects using `Object.entries()`.
+### [Commit 12 – Add Student API](https://github.com/R-pradeep2005/Student-attandance-management/commit/8596340b460120714f28bd9b7374fd8553f69b90)
+- Implemented POST API for adding students.  
+- Converted `FormData` into objects using `Object.entries()`.  
 
 ---
 
-## ✅ Commit 13 – MongoDB Integration
-- Connected Express server to MongoDB using **Mongoose**.
-- Secured DB connection string using `.env`.
+### [Commit 13 – MongoDB Integration](https://github.com/R-pradeep2005/Student-attandance-management/commit/c285e1040ca988c2e5017e6334ad7a67ad27c6ae)
+- Connected Express server to **MongoDB (Mongoose)**.  
+- Secured DB credentials using `.env`.  
 
 ---
 
-## ✅ Commit 14 – Schema & Models
-- Defined **Mongoose schema** with validation for student details.
-- Created **Student model** for database operations.
+### [Commit 14 – Schema & Models](https://github.com/R-pradeep2005/Student-attandance-management/commit/0a1690932edd09916ce1aadbed7eed4b1e44b991)
+- Defined **Mongoose schema** with validation.  
+- Created Student model.  
 
 ---
 
-## ✅ Commit 15 – Add & Fetch Students
-- Inserted students into DB using `.save()`.
-- Retrieved students using `.find()`.
+### [Commit 15 – Add & Fetch Students](https://github.com/R-pradeep2005/Student-attandance-management/commit/d68e4ae72ca8bd0220278c4006db722a0d55364d)
+- Added students to DB using `.save()`.  
+- Fetched using `.find()`.  
 
 ---
 
-## ✅ Commit 16 – Authentication
-- Implemented authentication for both teachers and students.
-- On login: fetched record by ID from DB, compared entered password with stored one, and returned boolean status.
+### [Commit 16 – Authentication](https://github.com/R-pradeep2005/Student-attandance-management/commit/0887332ea874e89fdd49f52e9672d52b1662799b)
+- Implemented **auth** for teacher/student.  
+- Compared entered password with DB.  
 
 ---
 
-## ✅ Commit 17 – Auto Student ID Generation
-- Implemented unique student IDs (`std_001, std_002, …`).
-- Used a separate counter collection and `$inc` operator in MongoDB to auto-increment IDs.
+### [Commit 17 – Auto Student ID Generation](https://github.com/R-pradeep2005/Student-attandance-management/commit/d2b40cfd36c990399849b2d7af56ac3ab7fabbef)
+- Auto-generated IDs (`std_001`, `std_002`).  
+- Used MongoDB `$inc` counter.  
 
 ---
 
-## ✅ Commit 18 – Enhanced UI
-- Added a **popup** after student creation: option to add another student or return to dashboard.
+### [Commit 18 – Enhanced UI](https://github.com/R-pradeep2005/Student-attandance-management/commit/647d782528ec27845e465dbdcbcc4ca8c6f9e206)
+- Popup after student creation (Add another OR Back).  
 
 ---
 
-## ✅ Commit 19 – Sync Teacher Dashboard with DB
-- Teacher dashboard now fetches real-time student details.
-- Added **update button** to sync edited attendance with DB using `findOneAndUpdate()`.
+### [Commit 19 – Sync Teacher Dashboard with DB](https://github.com/R-pradeep2005/Student-attandance-management/commit/dc44ea095fa57f77bda7f88fb1a6abf3a0ddf047)
+- Teacher Dashboard fetches live data.  
+- Updates synced with DB via `findOneAndUpdate()`.  
 
 ---
 
-## ✅ Commit 20 – Error Handling
-- Displayed total student count.
-- Alerted incorrect password attempts with conditional rendering.
+### [Commit 20 – Error Handling](https://github.com/R-pradeep2005/Student-attandance-management/commit/836130c5502442b0ca5c56db05c35400c1505644)
+- Displayed total student count.  
+- Error alerts for wrong passwords.  
 
 ---
 
-## ✅ Commit 21 – Student Deletion
-- Enabled student deletion via checkboxes.
-- Collected selected student IDs using `useRef`.
-- Sent **DELETE request** to server.
-- Used `Promise.all()` to handle multiple deletions in DB.
+### [Commit 21 – Student Deletion](https://github.com/R-pradeep2005/Student-attandance-management/commit/75e69b8df8fd321e54beb9d7b51dcb3008c5cf11)
+- Enabled **multi-delete** via checkboxes.  
+- Used `Promise.all()` to handle DB deletions.  
 
 ---
 
-## ✅ Commit 22 – Student Authentication
-- Verified student login from DB by matching ID and password.
-- Returned boolean response for authentication.
+### [Commit 22 – Student Authentication](https://github.com/R-pradeep2005/Student-attandance-management/commit/c0bb42f75e9c5e3c682636771871947c75aef707)
+- Verified student login using DB check.  
 
 ---
 
-## ✅ Commit 23 – Dynamic Student Dashboard
-- Passed student ID from login page to student dashboard using `useNavigate()` state.
-- Used `useLocation()` on the dashboard to fetch and display the correct student’s data.
+### [Commit 23 – Dynamic Student Dashboard](https://github.com/R-pradeep2005/Student-attandance-management/commit/0e25cf6df2e047527528525100f14f236709370c)
+- Passed student ID via `useNavigate`.  
+- Fetched correct student data with `useLocation`.  
 
 ---
 
-## ✅ Commit 24 – Password Hashing
-- Integrated **bcrypt** to hash passwords before storing.
-- Used Mongoose middleware `pre('save')` to hash passwords automatically.
-- Verified login by comparing hashed passwords.
+### [Commit 24 – Password Hashing](https://github.com/R-pradeep2005/Student-attandance-management/commit/7c749cabeb111ec7c1384b01ce78ed49006dd936)
+- Integrated **bcrypt** for password hashing.  
+- Verified login with hash comparison.  
 
 ---
 
-## ✅ Commit 25 – JWT Authentication
-- Implemented **JWT tokens** for secure route access.
-- Stored tokens in client-side `localStorage`.
-- Built custom middleware to validate tokens before allowing access.
+### [Commit 25 – JWT Authentication](https://github.com/R-pradeep2005/Student-attandance-management/commit/b71ef277ed8768c2ae4173a9792285809ec88107)
+- Implemented **JWT tokens**.  
+- Middleware to verify tokens before accessing routes.  
 
 ---
 
-## ✅ Commit 26 – Role-Based Access
-- Restricted access to teacher dashboard for teacher accounts only.
-- Added middleware to verify role and block unauthorized access.
+### [Commit 26 – Role-Based Access](https://github.com/R-pradeep2005/Student-attandance-management/commit/d6d5207005c377c220308d56933111141b8b8e1c)
+- Restricted teacher dashboard to **teacher role only**.  
 
 ---
 
-## ✅ Commit 27 – NoSQL Injection Protection
-- Used **express-validator** (`escape(), trim()`) for sanitizing inputs.
-- Created helper function to sanitize iterated attendance values before saving to DB.
+### [Commit 27 – NoSQL Injection Protection](https://github.com/R-pradeep2005/Student-attandance-management/commit/208fa043fd177272c1209b90317cd402ce5da69a)
+- Used **express-validator** (`escape()`, `trim()`).  
+- Sanitized all inputs before DB save.  
 
 ---
 
-## ✅ Commit 28 – Final UI Enhancements
-- Added **dark mode** for better UX.
-- Dynamic styling for attendance:  
-  - **Present → Green**  
-  - **Absent → Red**
+### [Commit 28 – Final UI Enhancements](https://github.com/R-pradeep2005/Student-attandance-management/commit/d95283ae261813416aa58775d037adb2bfc89f29)
+- Added **dark mode**.  
+- Attendance styling:  
+  - ✅ Present → Green  
+  - ❌ Absent → Red  
 
 ---
 
-# 🚀 Final Thoughts
-This project started as a simple React CRUD app but evolved into a **secure, scalable, and user-friendly MERN application**. It demonstrates:
+## 🚀 Final Thoughts  
+This project started as a simple React CRUD app but evolved into a **secure, scalable, and user-friendly MERN application**.  
 
+It demonstrates:  
 - Handling complex UI rendering with React.  
 - Building and securing APIs with Express & MongoDB.  
-- Implementing real-world security (bcrypt, JWT, input sanitization).  
-- Enhancing user experience with responsive UI and alerts.  
+- Implementing real-world security (bcrypt, JWT, sanitization).  
+- Enhancing user experience with responsive UI + alerts.  
