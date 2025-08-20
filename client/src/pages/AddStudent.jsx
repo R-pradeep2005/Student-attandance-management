@@ -12,7 +12,7 @@ const AddStudent = () => {
     const student_data = Object.fromEntries(data.entries());
     student_data.attandance={};
     const token=localStorage.getItem('token');
-    fetch("http://localhost:5000/AddStudent", {
+    fetch(`${import.meta.env.VITE_API_URL}/AddStudent`, {
       method: "POST",
       headers: {
         'Authorization':`Bearer ${token}`,

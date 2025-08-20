@@ -22,7 +22,7 @@ const Teacher = () => {
 
   useEffect(() => {
     const token = localStorage.getItem('token');
-    fetch("http://localhost:5000/Teacher", {
+    fetch(`${import.meta.env.VITE_API_URL}/Teacher`, {
       method: "GET",
       headers:{
         'Authorization':`Bearer ${token}`
@@ -49,7 +49,7 @@ const Teacher = () => {
                   
       });
       const token= localStorage.getItem('token')
-      fetch('http://localhost:5000/Teacher',{
+      fetch(`${import.meta.env.VITE_API_URL}/Teacher`,{
         method:"DELETE",
         headers:{
           'Authorization':`Bearer ${token}`,
@@ -98,7 +98,7 @@ const Teacher = () => {
   };
   const handleUpdate = () => {
     const token=localStorage.getItem('token');
-    fetch("http://localhost:5000/Teacher", {
+    fetch(`${import.meta.env.VITE_API_URL}/Teacher`, {
       method: "PUT",
       headers: { 
         'Authorization':`Bearer ${token}`,

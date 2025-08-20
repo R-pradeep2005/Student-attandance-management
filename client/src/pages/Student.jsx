@@ -20,7 +20,7 @@ const Student = () => {
 
   useEffect(() => {
     const token = localStorage.getItem("token");
-    fetch(`http://localhost:5000/Student?std_id=${st_id.id}`, {
+    fetch(`${import.meta.env.VITE_API_URL}/Student?std_id=${st_id.id}`, {
       method: "GET",
       headers: {
         Authorization: `Bearer ${token}`,
