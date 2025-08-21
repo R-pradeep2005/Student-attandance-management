@@ -1,45 +1,53 @@
 import React from "react";
 import { useRef } from "react";
- import {useNavigate} from 'react-router-dom'
+import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const AddStudent = () => {
-  const formRef =useRef(null)
-  const navigate =useNavigate()
+  const formRef = useRef(null);
+  const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
     const data = new FormData(e.target);
     const student_data = Object.fromEntries(data.entries());
-    student_data.attandance={};
-    const token=localStorage.getItem('token');
+    student_data.attandance = {};
+    const token = localStorage.getItem("token");
     fetch(`${import.meta.env.VITE_API_URL}/AddStudent`, {
       method: "POST",
       headers: {
-        'Authorization':`Bearer ${token}`,
+        Authorization: `Bearer ${token}`,
         "content-type": "application/json",
       },
       body: JSON.stringify(student_data),
     })
-      .then((response) => (
-        response.json())
-      )
+      .then((response) => response.json())
       .then((res) => {
         console.log(res);
 
-        formRef.current.reset()
-        res? Swal.fire({title:'Student added the successfully !',
-                        text:'Click Ok  to navigate to -> dashboard ',
-                        buttons:true,
-                        showCancelButton:true
-
-        }).then((result)=>{result.isConfirmed?navigate('/Teacher'):null}):null
-       
+        formRef.current.reset();
+        res
+          ? Swal.fire({
+              title: "Student added the successfully !",
+              text: "Click Ok  to navigate to -> dashboard ",
+              buttons: true,
+              showCancelButton: true,
+            }).then((result) => {
+              result.isConfirmed ? navigate("/Teacher") : null;
+            })
+          : null;
       });
   };
 
   return (
     <div className="flex flex-col items-center">
-      <div className="w-full flex flex-row justify-start"><button onClick={()=>(navigate('/Teacher'))} className="bg-blue-600 hover:bg-blue-700 cursor-pointer text-white rounded-xl p-2 font-bold w-fit mt-4">Back</button></div>
+      <div className="w-full flex flex-row justify-start">
+        <button
+          onClick={() => navigate("/Teacher")}
+          className="bg-blue-600 hover:bg-blue-700 cursor-pointer text-white rounded-xl p-2 font-bold w-fit mt-4"
+        >
+          Back
+        </button>
+      </div>
       <h1 className="font-bold text-[24px]">Add new Student</h1>
       <form
         ref={formRef}

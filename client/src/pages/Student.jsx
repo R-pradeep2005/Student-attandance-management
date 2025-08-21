@@ -5,7 +5,7 @@ import { Link, useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 const Student = () => {
-  const navigate=useNavigate();
+  const navigate = useNavigate();
   const [student, setStudent_data] = useState({
     name: "",
     email: "",
@@ -27,7 +27,15 @@ const Student = () => {
         "content-type": "application/json",
       },
     })
-      .then((response) =>{if(!response.ok){window.alert('error in authentication not a valid jwt token');navigate('/');throw new Error('authenticaion error')}else{return response.json()}})
+      .then((response) => {
+        if (!response.ok) {
+          window.alert("error in authentication not a valid jwt token");
+          navigate("/");
+          throw new Error("authenticaion error");
+        } else {
+          return response.json();
+        }
+      })
       .then((data) => {
         setStudent_data(data);
       });
@@ -56,7 +64,9 @@ const Student = () => {
 
   return (
     <div className="flex flex-col items-center justify-center gap-4 ">
-      <h1 className="font-bold mt-12 text-[32px] text-gray-400">Welcome {student.name}!</h1>
+      <h1 className="font-bold mt-12 text-[32px] text-gray-400">
+        Welcome {student.name}!
+      </h1>
       <h3 className="font-semibold mt-4">Student info</h3>
       <table>
         <tr>

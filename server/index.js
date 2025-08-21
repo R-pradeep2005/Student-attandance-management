@@ -1,8 +1,8 @@
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
-const authenticate=require('./middelware/authentication');
-const authorization=require('./middelware/authorization')
+const authenticate = require("./middelware/authentication");
+const authorization = require("./middelware/authorization");
 require("dotenv").config();
 const LoginRouter = require("./routes/login");
 const StudentRouter = require("./routes/student");
@@ -22,11 +22,10 @@ mongoose
 app.use(cors());
 app.use(express.json());
 app.use("/", LoginRouter);
-app.use("/Student", authenticate,StudentRouter);
-app.use("/Teacher",authenticate,authorization,TeacherRouter);
-app.use("/AddStudent",authenticate, AddStudentRouter);
+app.use("/Student", authenticate, StudentRouter);
+app.use("/Teacher", authenticate, authorization, TeacherRouter);
+app.use("/AddStudent", authenticate, AddStudentRouter);
 
-app.listen(5000, () => { 
+app.listen(5000, () => {
   console.log("Lisenting...");
 });
- 

@@ -11,14 +11,14 @@ async function getStudent_id(student_id) {
   );
   return data.sequence_value;
 }
-router.post("/", async(req, res) => {
-  const getid=await getStudent_id('studentid');
-  req.body.id=`std_${getid}`;
-  body('id').escape().trim()
-  body('name').escape().trim()
-    body('email').escape().trim()
-    body('phone_no').escape().trim()
-    body('password').escape().trim()
+router.post("/", async (req, res) => {
+  const getid = await getStudent_id("studentid");
+  req.body.id = `std_${getid}`;
+  body("id").escape().trim();
+  body("name").escape().trim();
+  body("email").escape().trim();
+  body("phone_no").escape().trim();
+  body("password").escape().trim();
   const data = new student(req.body);
   data
     .save()
