@@ -22,6 +22,9 @@ jobs:
       - name: Push  nodejs server Image
         run: docker push ${{secrets.DOCKER_USER_NAME}}/mern-server:latest
 
+      - name: Trigger Deploy on Render
+        run: curl -X POST ${{secrets.RENDER_WEBHOOK}}
+
       
 
       
