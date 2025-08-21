@@ -16,12 +16,6 @@ jobs:
          username: ${{secrets.DOCKER_USER_NAME}}
          password: ${{secrets.DOCKER_PASSWORD}}
 
-      - name: Build client Image
-        run: docker build -t ${{secrets.DOCKER_USER_NAME}}/mern-client:latest ./client
-
-      - name: Push client Image
-        run: docker push ${{secrets.DOCKER_USER_NAME}}/mern-client:latest
-
       - name: Build nodejs server Image
         run: docker build -t ${{secrets.DOCKER_USER_NAME}}/mern-server:latest ./server
 
