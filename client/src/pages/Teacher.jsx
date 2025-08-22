@@ -245,7 +245,7 @@ const Teacher = () => {
 
       <Link
         to={"/"}
-        className="bg-blue-600 hover:bg-red-700 mt-6 cursor-pointer text-white rounded-xl p-2 font-bold"
+        className="bg-blue-600 hover:bg-red-700 mt-6 cursor-pointer w-fit self-center  text-white rounded-xl p-2 pl-4 pr-4 font-bold"
       >
         Log out
       </Link>
