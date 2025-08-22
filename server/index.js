@@ -3,7 +3,6 @@ const app = express();
 const mongoose = require("mongoose");
 const authenticate = require("./middelware/authentication");
 const authorization = require("./middelware/authorization");
-require("dotenv").config();
 const LoginRouter = require("./routes/login");
 const StudentRouter = require("./routes/student");
 const TeacherRouter = require("./routes/Teacher");
