@@ -10,6 +10,7 @@ const AddStudentRouter = require("./routes/AddStudent");
 const cors = require("cors");
 const admin = require("./model/admin");
 const student = require("./model/student");
+console.log("env check : ",process.env.MONGODB,process.env.PORT)
 mongoose
   .connect(process.env.MONGODB)
   .then(() => {
