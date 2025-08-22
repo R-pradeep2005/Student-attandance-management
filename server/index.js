@@ -26,6 +26,6 @@ app.use("/Student", authenticate, StudentRouter);
 app.use("/Teacher", authenticate, authorization, TeacherRouter);
 app.use("/AddStudent", authenticate, AddStudentRouter);
 
-app.listen(5000,'0.0.0.0', () => {
+app.listen(process.env.PORT,'0.0.0.0', () => {
   console.log("Lisenting...");
 });
