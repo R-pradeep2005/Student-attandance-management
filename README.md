@@ -1,27 +1,85 @@
-# MERN Student Attendance Management System
+# 🎓 MERN Student Attendance Management System
 
-[![Deployed on Render](https://img.shields.io/badge/Deployed%20on-Render-46a2f1?logo=render)](https://mern-server-latest.onrender.com)
+[![Deployed on Render](https://img.shields.io/badge/Backend-Render-46a2f1?logo=render)](https://mern-server-latest.onrender.com)
+[![Deployed on Netlify](https://img.shields.io/badge/Frontend-Netlify-00c7b7?logo=netlify)](https://your-netlify-link.com)
+[![Docker](https://img.shields.io/badge/Docker-Hub-2496ed?logo=docker)](https://hub.docker.com/repository/docker/pradeep2005/mern-server/general)
 
-## 📌 Overview  
+---
 
-This project is a **Full-Stack Student Management System** built with the **MERN stack**.  
-It allows administrators and teachers to manage students, track attendance, and secure access through **role-based authentication**.  
+## 🎥 Demo
+[![Watch the video](https://img.youtube.com/vi/W6Wn3ig0XTY/0.jpg)](https://youtu.be/W6Wn3ig0XTY)
 
-Key aspects of the system include:  
-- A clean and responsive **React frontend** with dynamic dashboards  
-- A robust **Node.js & Express backend** with secured APIs  
-- Persistent data storage in **MongoDB** with schema-driven design  
-- **Authentication & Authorization** using JWT tokens and bcrypt password hashing  
-- Modern UI/UX powered by **Tailwind CSS** and enhanced with interactive features  
+---
 
+## 📌 Overview
+
+A **Full-Stack Student Attendance Management System** built with the **MERN stack**.  
+It enables teachers to manage students, track attendance, and enforce **role-based access control** with a modern, responsive UI.
+
+
+
+---
 ## ⚡ Technical Highlights
 
 - Built with **MERN Stack** (MongoDB, Express.js, React, Node.js)  
 - Secured with **bcrypt** for password hashing & **JWT** for authentication  
 - Input validation handled using **express-validator**  
 - Styled with **Tailwind CSS** for responsive and modern UI design  
-- Version controlled with **Git & GitHub** for collaboration and source management  
+- Version controlled with **Git & GitHub** for collaboration and source management 
 
+## 🚀 Deployment Workflow
+
+This project follows a **professional-grade CI/CD pipeline**:
+
+```mermaid
+flowchart LR
+    A[Commit to GitHub] --> B[GitHub Actions]
+    B --> C[Build Docker Image]
+    C --> D[Push to Docker Hub]
+    D --> E[Render Webhook]
+    E --> F[Render Backend Deploy]
+    A --> G[Netlify Build & Deploy]
+    G --> H[Frontend Live]
+```
+🔄 **Flow**
+
+- Commit pushed → GitHub Actions runs  
+- **Backend**: Docker image built → pushed to Docker Hub → Render auto-deploys via webhook  
+- **Frontend**: Netlify auto-builds & deploys React app  
+
+---
+
+🔒 **Environment Variables**
+
+Both **frontend (Netlify)** and **backend (Render)** use environment variables for sensitive data (MongoDB URI, JWT secrets, API keys).  
+➡️ No secrets are exposed in the codebase.  
+
+---
+
+🛠️ **Tech Stack**
+
+- **Frontend**: React, Tailwind CSS, React Router DOM  
+- **Backend**: Node.js, Express.js  
+- **Database**: MongoDB + Mongoose  
+- **Authentication**: JWT, bcrypt  
+- **Validation & Security**: express-validator, sanitization  
+- **Deployment**: GitHub Actions, Docker, Docker Hub, Render, Netlify  
+
+---
+
+✨ **Features**
+
+👩‍🏫 **Teacher**  
+- Add / delete students  
+- Mark and update attendance  
+- View student records in a dynamic table  
+
+🎓 **Student**  
+- Secure login  
+- View personal attendance records  
+- Track attendance percentage    
+
+---
 
 # 📘 Project Journey – Student Management System (Commit by Commit)
 
@@ -201,11 +259,14 @@ The app enables teachers to manage attendance and students to view their records
 
 ---
 
-## 🚀 Final Thoughts  
-This project started as a simple React CRUD app but evolved into a **secure, scalable, and user-friendly MERN application**.  
+🚀 **Final Thoughts**  
+
+This project evolved from a simple CRUD app into a secure, scalable, production-ready MERN application.  
 
 It demonstrates:  
-- Handling complex UI rendering with React.  
-- Building and securing APIs with Express & MongoDB.  
-- Implementing real-world security (bcrypt, JWT, sanitization).  
-- Enhancing user experience with responsive UI + alerts.  
+- Building & securing full-stack apps  
+- Real-world CI/CD with Docker + GitHub Actions + Render + Netlify  
+- Strong focus on security, scalability, and clean UI/UX  
+
+📌 This project showcases both my technical expertise (**MERN stack, DevOps, security**) and my ability to deliver a **professional-grade deployment pipeline**.  
+
