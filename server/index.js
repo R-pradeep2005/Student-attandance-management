@@ -3,7 +3,6 @@ const app = express();
 const mongoose = require("mongoose");
 const authenticate = require("./middelware/authentication");
 const authorization = require("./middelware/authorization");
-require("dotenv").config();
 const LoginRouter = require("./routes/login");
 const StudentRouter = require("./routes/student");
 const TeacherRouter = require("./routes/Teacher");
@@ -11,6 +10,7 @@ const AddStudentRouter = require("./routes/AddStudent");
 const cors = require("cors");
 const admin = require("./model/admin");
 const student = require("./model/student");
+console.log("env check : ",process.env.MONGODB,process.env.PORT)
 mongoose
   .connect(process.env.MONGODB)
   .then(() => {
