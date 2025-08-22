@@ -110,7 +110,7 @@ const Login = () => {
             onClick={() => {
               setShowpassword(!showpassword);
             }}
-            className="absolute cursor-pointer left-[55%]"
+            className="absolute cursor-pointer left-[70%] sm:left-[55%]"
           >
             <svg
               fill="#ffff"

@@ -129,7 +129,7 @@ const Teacher = () => {
   }, [start_date]);
 
   return (
-    <div className="flex flex-col p-4  items-center">
+    <div className="flex flex-col p-0 sm:p-4  w-full ">
       <h1 className="text-[24px] font-semibold ">Teacher's Panel</h1>
       <div className="flex flex-row mt-12 mb-8 justify-between w-full">
         <Link
@@ -158,18 +158,18 @@ const Teacher = () => {
       <h1 className="text-l mb-4 text-gray-400 font-semibold mt-2 self-start">
         List of all students
       </h1>
-      <div className="flex flex-row  items-center max-w-[90vw]">
+      <div className="flex flex-row  items-center w-full">
         {student_detail.length == 0 ? (
           "No student added yet !"
         ) : (
-          <div className="flex flex-row border-[1.5px] bg-[#50505042] border-gray-500 rounded-2xl overflow-hidden w-full justify-start ">
+          <div className="flex flex-row border-[1.5px] bg-[#50505042] border-gray-500 overflow-scroll  rounded-2xl sm:overflow-hidden w-full justify-start ">
             <table className="border-collapse    w-fit self-start">
               <thead>
                 <tr className="bg-[#323232] ">
                   <th className="p-2 w-fit">Select</th>
                   <th className="p-2 w-fit">S.no</th>
                   <th className="p-2 w-fit">Student_id</th>
-                  <th className="p-2 w-fit">Name</th>
+                  <th className="p-2 hidden sm:block w-fit">Name</th>
                 </tr>
               </thead>
               <tbody>
@@ -185,7 +185,7 @@ const Teacher = () => {
                     </td>
                     <td className="p-2 w-fit">{index + 1}</td>
                     <td className="p-2 w-fit">{item.id}</td>
-                    <td className="p-2 w-fit">{item.name}</td>
+                    <td className="p-2 hidden sm:block w-fit">{item.name}</td>
                   </tr>
                 ))}
               </tbody>
@@ -206,9 +206,9 @@ const Teacher = () => {
                   {student_detail.map((item, index) => (
                     <tr key={index}>
                       {date_arr.map((date, ind) => (
-                        <td className="  p-2 w-fit" key={ind}>
+                        <td className="  p-2 w-6 sm:w-fit" key={ind}>
                           <input
-                            className={`text-center ${
+                            className={`text-center w-6 sm:w-fit ${
                               item.attandance[date] == "P"
                                 ? "text-green-600"
                                 : item.attandance[date] == "A"
