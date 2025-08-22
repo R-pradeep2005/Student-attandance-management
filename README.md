@@ -1,7 +1,7 @@
 # 🎓 MERN Student Attendance Management System
 
-[![Deployed on Render](https://img.shields.io/badge/Backend-Render-46a2f1?logo=render)](https://mern-server-latest.onrender.com)
-[![Deployed on Netlify](https://img.shields.io/badge/Frontend-Netlify-00c7b7?logo=netlify)](https://your-netlify-link.com)
+[![Deployed on Render](https://img.shields.io/badge/Backend-Render-46a2f1?logo=render)](https://student-attandance-management-system.netlify.app/)
+[![Deployed on Netlify](https://img.shields.io/badge/Frontend-Netlify-00c7b7?logo=netlify)](https://student-attandance-management-system.netlify.app/)
 [![Docker](https://img.shields.io/badge/Docker-Hub-2496ed?logo=docker)](https://hub.docker.com/repository/docker/pradeep2005/mern-server/general)
 
 
