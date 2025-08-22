@@ -4,12 +4,7 @@
 [![Deployed on Netlify](https://img.shields.io/badge/Frontend-Netlify-00c7b7?logo=netlify)](https://your-netlify-link.com)
 [![Docker](https://img.shields.io/badge/Docker-Hub-2496ed?logo=docker)](https://hub.docker.com/repository/docker/pradeep2005/mern-server/general)
 
----
 
-## 🎥 Demo
-[![Watch the video](https://img.youtube.com/vi/W6Wn3ig0XTY/0.jpg)](https://youtu.be/W6Wn3ig0XTY)
-
----
 
 ## 📌 Overview
 
@@ -19,6 +14,26 @@ It enables teachers to manage students, track attendance, and enforce **role-bas
 
 
 ---
+## 🧑‍💻 Demo Credentials
+
+Use the following credentials to explore the application:
+
+### 👩‍🏫 Teacher Login
+- **ID:** `t001`  
+- **Password:** `abc@123`
+
+### 🎓 Student Login
+- **ID:** `std_1`  
+- **Password:** `linus@123`
+
+⚠️ *These demo accounts are provided only for testing purposes.*
+
+---
+## 🎥 Demo
+[![Watch the video](https://img.youtube.com/vi/W6Wn3ig0XTY/0.jpg)](https://youtu.be/W6Wn3ig0XTY)
+
+---
+
 ## ⚡ Technical Highlights
 
 - Built with **MERN Stack** (MongoDB, Express.js, React, Node.js)  
@@ -27,6 +42,7 @@ It enables teachers to manage students, track attendance, and enforce **role-bas
 - Styled with **Tailwind CSS** for responsive and modern UI design  
 - Version controlled with **Git & GitHub** for collaboration and source management 
 
+---
 ## 🚀 Deployment Workflow
 
 This project follows a **professional-grade CI/CD pipeline**:
