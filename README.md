@@ -1,3 +1,7 @@
+# MERN Student Attendance Management System
+
+[![Deployed on Render](https://img.shields.io/badge/Deployed%20on-Render-46a2f1?logo=render)](https://mern-server-latest.onrender.com)
+
 ## 📌 Overview  
 
 This project is a **Full-Stack Student Management System** built with the **MERN stack**.  
