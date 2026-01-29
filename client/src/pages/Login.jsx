@@ -71,7 +71,7 @@ const Login = () => {
             Welcome to Student attandance<br></br> management login to proceed !
           </h1>
 			<h2 className="font-semibold text-[18px] text-gray-400 mb-12">
-                 refer the readme <a className="text-blue-600 underline"  target="_blank" href="https://github.com/R-pradeep2005/Student-attandance-management?tab=readme-ov-file#%E2%80%8D-demo-credentials">here</a> for demo creditials
+                 refer the readme <a className="text-blue-600 underline"  target="_blank" href="https://github.com/R-pradeep2005/Student-attandance-management?tab=readme-ov-file#%E2%80%8D-demo-credentials">here</a> for demo credentials
           </h2>
           <div className="flex flex-row gap-5 mt-4 mb-8  w-fit justify-stretch ">
             <button
